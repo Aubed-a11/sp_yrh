@@ -1,0 +1,7 @@
+package com.africa.sport.model;
+
+public enum Role {
+    VISITOR, PUBLIC_USER, SUPER_ADMIN_PROMOTER,
+    ADMIN_TERRAIN, COMMENTATEUR, TEAM_ACCOUNT,
+    SCOUT, PLATFORM_ADMIN
+}

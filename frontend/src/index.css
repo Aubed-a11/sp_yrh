@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap');
+
+:root {
+  /* Colors */
+  --c-bg:        #060a0f;
+  --c-surface:   #0d1520;
+  --c-surface-2: #141f2e;
+  --c-border:    #1e2d40;
+  --c-border-2:  #243447;
+
+  --c-primary:   #00d4aa;
+  --c-primary-d: #00a882;
+  --c-accent:    #ff6b35;
+  --c-gold:      #f5c518;
+
+  --c-text:      #e8edf2;
+  --c-text-2:    #8fa3ba;
+  --c-text-3:    #506070;
+
+  --c-live:      #ef4444;
+  --c-success:   #22c55e;
+  --c-warning:   #f59e0b;
+  --c-info:      #3b82f6;
+
+  /* Sports colors */
+  --c-football:   #00d4aa;
+  --c-basketball: #ff6b35;
+  --c-handball:   #8b5cf6;
+  --c-volleyball:  #f59e0b;
+  --c-tennis:     #22c55e;
+
+  /* Typography */
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  /* Spacing */
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --r-xl: 24px;
+
+  /* Shadows */
+  --shadow-glow: 0 0 20px rgba(0, 212, 170, 0.15);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--c-text);
+}
+
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; outline: none; background: none; font-family: inherit; }
+input, select, textarea { font-family: inherit; outline: none; border: none; background: none; }
+img { max-width: 100%; height: auto; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--c-surface); }
+::-webkit-scrollbar-thumb { background: var(--c-border-2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--c-text-3); }
+
+/* Animations */
+@keyframes pulse-live {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.2); }
+}
+@keyframes slide-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes score-flash {
+  0% { background: rgba(0, 212, 170, 0.3); }
+  100% { background: transparent; }
+}
+
+.animate-in { animation: slide-in 0.3s ease forwards; }
+.fade-in { animation: fade-in 0.2s ease forwards; }
+
+/* Live indicator */
+.live-dot {
+  width: 8px; height: 8px;
+  background: var(--c-live);
+  border-radius: 50%;
+  animation: pulse-live 1.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+/* Cards */
+.card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  padding: 20px;
+}
+
+.card:hover {
+  border-color: var(--c-border-2);
+  transition: border-color 0.2s;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--r-md);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--c-primary);
+  color: #000;
+}
+.btn-primary:hover { background: var(--c-primary-d); transform: translateY(-1px); }
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--c-border-2);
+  color: var(--c-text);
+}
+.btn-outline:hover { border-color: var(--c-primary); color: var(--c-primary); }
+
+.btn-danger {
+  background: var(--c-live);
+  color: #fff;
+}
+.btn-danger:hover { background: #dc2626; }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--c-text-2);
+}
+.btn-ghost:hover { color: var(--c-text); background: var(--c-surface-2); }
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--font-display);
+}
+.badge-live { background: rgba(239,68,68,0.15); color: var(--c-live); }
+.badge-success { background: rgba(34,197,94,0.15); color: var(--c-success); }
+.badge-warning { background: rgba(245,158,11,0.15); color: var(--c-warning); }
+.badge-info { background: rgba(59,130,246,0.15); color: var(--c-info); }
+.badge-primary { background: rgba(0,212,170,0.15); color: var(--c-primary); }
+
+/* Form */
+.form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.form-label { font-size: 13px; font-weight: 500; color: var(--c-text-2); }
+.form-input {
+  background: var(--c-surface-2);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: 10px 14px;
+  color: var(--c-text);
+  font-size: 14px;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+.form-input:focus { border-color: var(--c-primary); }
+.form-input::placeholder { color: var(--c-text-3); }
+
+/* Table */
+.table { width: 100%; border-collapse: collapse; }
+.table th {
+  text-align: left;
+  padding: 12px 16px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--c-text-3);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--c-border);
+}
+.table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--c-border);
+  font-size: 14px;
+}
+.table tr:hover td { background: var(--c-surface-2); }
+
+/* Layout */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .container { padding: 0 16px; }
+}
+
+/* Score flash animation */
+.score-updated { animation: score-flash 1s ease forwards; }

@@ -1,0 +1,6 @@
+package com.africa.sport.model;
+
+public enum TournamentFormat {
+    ELIMINATION_DIRECTE, PHASE_LIGUE, PHASE_POULES,
+    POULES_PUIS_ELIMINATION, LIGUE_PUIS_ELIMINATION, PERSONNALISE
+}
